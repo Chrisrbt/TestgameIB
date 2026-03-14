@@ -418,7 +418,7 @@ const Maps = {
               text: "Hai trovato una vecchia chiave arrugginita!" },
         ],
         transitions: [
-            { x: 9, y: 10, to: 'forest', toX: 8, toY: 8, needKey: false },
+            { x: 9, y: 13, to: 'forest', toX: 8, toY: 8, needKey: false },
             { x: 9, y: 6, to: 'otherworld_hall', toX: 10, toY: 13, isTrap: true,
               dialogue: "La botola cede sotto i tuoi piedi! Cadi nel buio..." },
         ]
