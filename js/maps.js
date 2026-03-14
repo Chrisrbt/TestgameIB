@@ -381,7 +381,7 @@ const Maps = {
               text: "Inciso su un albero: \"La botola si apre solo per chi ha il coraggio di scendere.\"" },
         ],
         transitions: [
-            { x: 8, y: 7, to: 'house_exterior', toX: 9, toY: 13 }
+            { x: 8, y: 7, to: 'house_exterior', toX: 9, toY: 11 }
         ]
     },
 
@@ -391,7 +391,7 @@ const Maps = {
         height: 15,
         darkness: 0.4,
         tint: { r: 10, g: 0, b: 10, a: 0.08 },
-        playerStart: { x: 9, y: 13 },
+        playerStart: { x: 9, y: 11 },
         tiles: [
             [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
             [2,0,0,0,0,2,7,7,7,7,7,7,7,7,2,0,0,0,0,2],
@@ -402,12 +402,12 @@ const Maps = {
             [2,0,2,0,0,7,0,0,0,8,0,0,0,0,7,0,2,0,0,2],
             [2,0,0,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,2],
             [2,0,0,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,2],
-            [2,0,0,2,0,7,7,0,0,0,0,0,0,7,7,0,2,0,0,2],
-            [2,0,0,0,0,2,7,7,7,4,7,7,7,7,2,0,0,0,0,2],
-            [2,0,0,0,0,2,2,2,2,3,2,2,2,2,2,0,0,0,0,2],
+            [2,0,0,2,0,7,7,3,3,3,3,3,3,7,7,0,2,0,0,2],
+            [2,0,0,0,0,2,7,7,3,3,3,7,7,7,2,0,0,0,0,2],
+            [2,0,0,0,0,2,2,2,3,3,3,2,2,2,2,0,0,0,0,2],
             [2,0,2,0,0,0,0,0,3,3,3,0,0,0,0,0,2,0,0,2],
             [2,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,2],
-            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,2,2],
         ],
         entities: [
             { type: 'note', x: 7, y: 4, id: 'house_note1',
@@ -418,7 +418,7 @@ const Maps = {
               text: "Hai trovato una vecchia chiave arrugginita!" },
         ],
         transitions: [
-            { x: 9, y: 13, to: 'forest', toX: 8, toY: 8, needKey: false },
+            { x: 9, y: 14, to: 'forest', toX: 8, toY: 8, needKey: false },
             { x: 9, y: 6, to: 'otherworld_hall', toX: 10, toY: 13, isTrap: true,
               dialogue: "La botola cede sotto i tuoi piedi! Cadi nel buio..." },
         ]
