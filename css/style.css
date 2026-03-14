@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background: #111;
+    max-width: 100vw;
+    max-height: 70vh;
+}
+
+/* Title Screen */
+#title-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 1s ease;
+}
+
+#title-content {
+    text-align: center;
+    color: #8b0000;
+}
+
+#title-content h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px #8b0000, 0 0 40px #500;
+    animation: flicker 3s infinite;
+    letter-spacing: 8px;
+}
+
+.subtitle {
+    color: #666;
+    margin: 10px 0 30px;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.title-art {
+    margin: 20px 0;
+    font-size: 0.8em;
+    line-height: 1.6;
+}
+
+#start-btn, #restart-btn {
+    background: none;
+    border: 2px solid #8b0000;
+    color: #8b0000;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    padding: 12px 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+    letter-spacing: 4px;
+}
+
+#start-btn:hover, #restart-btn:hover {
+    background: #8b0000;
+    color: #000;
+    box-shadow: 0 0 20px #8b0000;
+}
+
+.controls-hint {
+    color: #444;
+    font-size: 0.7em;
+    margin-top: 20px;
+}
+
+/* Dialogue Box */
+#dialogue-box {
+    position: fixed;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.92);
+    border: 2px solid #555;
+    border-radius: 4px;
+    padding: 16px 20px;
+    color: #ddd;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    z-index: 50;
+}
+
+#dialogue-text {
+    min-height: 40px;
+}
+
+#dialogue-continue {
+    text-align: right;
+    color: #666;
+    font-size: 11px;
+    margin-top: 8px;
+    animation: blink 1.5s infinite;
+}
+
+/* Inventory */
+#inventory-bar {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 40;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #888;
+    min-height: 36px;
+}
+
+#inventory-items {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.inv-item {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* Mobile Controls */
+#mobile-controls {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 40;
+}
+
+.ctrl-row {
+    display: flex;
+    gap: 4px;
+}
+
+.ctrl-btn {
+    width: 56px;
+    height: 56px;
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(100, 100, 100, 0.5);
+    border-radius: 10px;
+    color: #aaa;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ctrl-btn:active {
+    background: rgba(139, 0, 0, 0.5);
+    border-color: #8b0000;
+}
+
+#btn-action {
+    background: rgba(139, 0, 0, 0.3);
+    border-color: rgba(139, 0, 0, 0.5);
+}
+
+/* Game Over */
+#game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    color: #8b0000;
+    text-align: center;
+    padding: 20px;
+}
+
+#game-over-title {
+    font-size: 2.5em;
+    text-shadow: 0 0 30px #8b0000;
+    margin-bottom: 20px;
+}
+
+#game-over-text {
+    color: #888;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    max-width: 400px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+    52% { opacity: 0.4; }
+    54% { opacity: 0.9; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Desktop: hide mobile controls if pointer available */
+@media (hover: hover) and (pointer: fine) {
+    #mobile-controls {
+        opacity: 0.3;
+    }
+    #mobile-controls:hover {
+        opacity: 1;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    #title-content h1 {
+        font-size: 2em;
+    }
+    .title-art {
+        font-size: 0.6em;
+    }
+    #dialogue-box {
+        bottom: 180px;
+        font-size: 13px;
+    }
+    .ctrl-btn {
+        width: 50px;
+        height: 50px;
+    }
+}

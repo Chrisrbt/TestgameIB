@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Nel Bosco - Un gioco horror</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🌲</text></svg>">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="dialogue-box" class="hidden">
+            <div id="dialogue-text"></div>
+            <div id="dialogue-continue">Tocca per continuare...</div>
+        </div>
+        <div id="title-screen">
+            <div id="title-content">
+                <h1>Nel Bosco</h1>
+                <p class="subtitle">Un viaggio nell'oscurita</p>
+                <div class="title-art">
+                    <pre>
+    🌲🌲🌲🌲🌲🌲🌲
+   🌲  🌑🌑🌑  🌲
+  🌲  🌑  🏚️  🌑  🌲
+   🌲  🌑🌑🌑  🌲
+    🌲🌲🌲🌲🌲🌲🌲
+                    </pre>
+                </div>
+                <button id="start-btn">INIZIA</button>
+                <p class="controls-hint">Usa le frecce o tocca lo schermo per muoverti</p>
+            </div>
+        </div>
+        <div id="inventory-bar">
+            <div id="inventory-label">Inventario:</div>
+            <div id="inventory-items"></div>
+        </div>
+        <div id="mobile-controls">
+            <button class="ctrl-btn" id="btn-up" data-dir="up">&#9650;</button>
+            <div class="ctrl-row">
+                <button class="ctrl-btn" id="btn-left" data-dir="left">&#9664;</button>
+                <button class="ctrl-btn" id="btn-action" data-dir="action">&#9679;</button>
+                <button class="ctrl-btn" id="btn-right" data-dir="right">&#9654;</button>
+            </div>
+            <button class="ctrl-btn" id="btn-down" data-dir="down">&#9660;</button>
+        </div>
+        <div id="game-over-screen" class="hidden">
+            <h1 id="game-over-title">GAME OVER</h1>
+            <p id="game-over-text"></p>
+            <button id="restart-btn">Riprova</button>
+        </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/puzzles.js"></script>
+    <script src="js/dialogue.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
